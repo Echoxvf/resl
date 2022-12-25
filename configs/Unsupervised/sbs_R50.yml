@@ -1,0 +1,57 @@
+_BASE_: ../Base-SBS.yml
+MODEL:
+  EMA: True
+  META_ARCHITECTURE: BaselineUn
+  FREEZE_LAYERS: [  ] #backbone
+  BACKBONE:
+    WITH_NL: False # True #
+    # WITH_NL: False # True #
+  HEADS:
+    NECK_FEAT: after
+    POOL_LAYER: GeneralizedMeanPoolingP
+    # CLS_LAYER: CircleSoftmax
+    # SCALE: 64
+    CLS_LAYER: Linear
+    SCALE: 1
+    MARGIN: 0.35
+  LOSSES:
+    NAME: ("OIMLoss",) 
+    CE:
+      EPSILON: 0.1
+      SCALE: 1.0
+    TRI:
+      MARGIN: 0.0
+      HARD_MINING: True
+      NORM_FEAT: False
+      SCALE: 1.0
+
+SOLVER:
+  AMP:
+    ENABLED: False
+  OPT: Adam
+  MAX_EPOCH: 1200
+  BASE_LR: 0.00035
+  WEIGHT_DECAY: 0.0005
+  WEIGHT_DECAY_NORM: 0.0005
+  IMS_PER_BATCH: 64   # 64
+  SCHED: MultiStepLR
+  DELAY_EPOCHS: 0
+  ITERS_PER_EPOCH: 400
+  STEPS: [ 30, 60 ]
+  GAMMA: 0.1
+  WARMUP_FACTOR: 0.1
+  WARMUP_ITERS: 0 # 2000
+  FREEZE_ITERS: 0 # 1000
+  CHECKPOINT_PERIOD: 30
+
+DATALOADER:
+  SAMPLER_TRAIN: RandomMultipleGallerySampler
+  NUM_INSTANCE: 4
+  NUM_WORKERS: 8
+DATASETS:
+  NAMES: ("Market1501",)
+  TESTS: ("Market1501",)
+OUTPUT_DIR: logs/market1501/sbs_R50_64_400_new
+TEST:
+  EVAL_PERIOD: 5
+  IMS_PER_BATCH: 32

@@ -1,0 +1,12 @@
+_BASE_: ../Base-RESL.yml
+
+MODEL:
+  META_ARCHITECTURE: RESL
+  BACKBONE:
+    WITH_IBN: False
+
+DATASETS:
+  NAMES: ("DukeMTMC",)
+  TESTS: ("DukeMTMC",)
+
+OUTPUT_DIR: logs/dukemtmc/RESL_R50_pretrain

@@ -1,0 +1,11 @@
+_BASE_: ../Base-REL.yml
+
+MODEL:
+  BACKBONE:
+    WITH_IBN: False
+
+DATASETS:
+  NAMES: ("Market1501",)
+  TESTS: ("Market1501",)
+
+OUTPUT_DIR: logs/market1501/rsel_R50_layer4_after_256

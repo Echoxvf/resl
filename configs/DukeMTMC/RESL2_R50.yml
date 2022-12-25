@@ -1,0 +1,12 @@
+_BASE_: ../Base-RSEL.yml
+
+MODEL:
+  META_ARCHITECTURE: RSEL2
+  BACKBONE:
+    WITH_IBN: False
+
+DATASETS:
+  NAMES: ("DukeMTMC",)
+  TESTS: ("DukeMTMC",)
+
+OUTPUT_DIR: logs/dukemtmc/rsel2_R50_pretrain

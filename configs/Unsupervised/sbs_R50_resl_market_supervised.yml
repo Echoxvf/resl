@@ -1,0 +1,12 @@
+_BASE_: ../Base-RESL.yml
+
+MODEL:
+  META_ARCHITECTURE: RESL #RESL
+  BACKBONE:
+    WITH_IBN: False
+
+DATASETS:
+  NAMES: ("Market1501",)
+  TESTS: ("Market1501",)
+
+OUTPUT_DIR: logs/market1501/RESL_R50_pretrain
