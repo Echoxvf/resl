@@ -42,11 +42,12 @@ you should prepare dataset like [ECN](https://github.com/zhunzhong07/ECN) as fol
 + -- other files in this repo
 
 </pre>
-
+You can download the dataset from: https://pan.baidu.com/s/1vwApZ0St6KBWMapMGq5ALw 提取码：o3mk 
 
 ### train
 We run our models on one NVIDIA 3090 GPUs. 
-1.pretrained on source domain
+
+1.Pretrained on source domain. 
 Using the fast-reid to train ReSL model on the source domain dataset
 
 ```bash
@@ -56,7 +57,7 @@ CUDA_VISIBLE_DEVICES=0 python tools/train_net_unsupervised.py --config-file conf
 ```
 
 
-2.training on target dataset
+2.Training on target dataset
 
 ```python
 CUDA_VISIBLE_DEVICES=0  python tools/train_net_unsupervised.py --config-file configs/Unsupervised/sbs_R50_resl_market.yml MODEL.WEIGHTS /path/to/checkpoint_file
