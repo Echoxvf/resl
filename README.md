@@ -19,7 +19,7 @@
 - gdown
 
 ### datasers
-you should prepare dataset like [ECN](https://github.com/zhunzhong07/ECN) as following:
+you should prepare dataset like [ECN](https://github.com/zhunzhong07/ECN) /[JVTC](https://github.com/ljn114514/JVTC) and unzip each dataset and corresponding CamStyle under 'ECN/data/' as following:
 
 <pre>
 .
