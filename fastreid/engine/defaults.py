@@ -562,7 +562,7 @@ class UnsupervisedTrainer(TrainerBase):
             setup_logger()
 
         # Assume these objects must be constructed in this order.
-        data_loader = self.build_train_loader(cfg)
+        data_loader = self.build_train_loader(cfg, clustering=True)
         self.cluster_loader = self.build_train_loader(cfg, clustering=True)
         cfg = self.auto_scale_hyperparams(cfg, 1500) # set max class for unsupervised reid 
         model = self.build_model(cfg)
