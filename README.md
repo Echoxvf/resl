@@ -71,7 +71,7 @@ CUDA_VISIBLE_DEVICES=0 python tools/train_net_unsupervised.py --config-file conf
 ```
 
 
-3.Fully unsupervised training.
+### Fully unsupervised training.
 
 
 ```python
