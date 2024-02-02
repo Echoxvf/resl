@@ -50,17 +50,17 @@ You can download the dataset from: https://pan.baidu.com/s/1vwApZ0St6KBWMapMGq5A
 ### train
 We run our models on one NVIDIA 3090 GPUs. 
 
-1.Pretrained on source domain. 
+1. Pretrained on source domain. 
 Using the fast-reid to train ReSL model on the source domain dataset
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python tools/train_net_unsupervised.py --config-file configs/Unsupervised/sbs_R50_resl_duke_supervised.yml 
+CUDA_VISIBLE_DEVICES=0 python tools/train_net.py --config-file configs/Unsupervised/sbs_R50_resl_duke_supervised.yml 
 
-CUDA_VISIBLE_DEVICES=0 python tools/train_net_unsupervised.py --config-file configs/Unsupervised/sbs_R50_resl_market_supervised.yml 
+CUDA_VISIBLE_DEVICES=0 python tools/train_net.py --config-file configs/Unsupervised/sbs_R50_resl_market_supervised.yml 
 ```
 
 
-2.Training on target dataset
+2. Training on target dataset
 
 ```python
 CUDA_VISIBLE_DEVICES=0  python tools/train_net_unsupervised.py --config-file configs/Unsupervised/sbs_R50_resl_market.yml MODEL.WEIGHTS /path/to/checkpoint_file
